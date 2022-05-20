@@ -18,6 +18,9 @@ export default new VueRouter({
         {
             path: '/user/registration', component: () => import('./components/Registration'),
             name: 'user.registration'
+        },{
+            path: '/user/personal', component: () => import('./components/Personal'),
+            name: 'user.personal'
         },
     ]
 })

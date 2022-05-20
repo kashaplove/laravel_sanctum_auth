@@ -5,7 +5,7 @@
         <input v-model="password" type="password" placeholder="password" class="form-control mb-2">
         <input v-model="password_confirmation" type="password" placeholder="password_confirmation"
                class="form-control mb-2">
-        <input @click.prevent="register" type="submit" value="Register" class="btn btn-primary">
+        <input @click.prevent="register" type="submit" value="Register" class="btn btn-success">
     </div>
 </template>
 
@@ -34,7 +34,8 @@ export default {
                         password_confirmation: this.password_confirmation
                     })
                     .then(res => {
-                        console.log(res);
+                        localStorage.setItem('x-xsrf-token', res.config.headers['X-XSRF-TOKEN'])
+                        this.$router.push({name: 'user.personal'})
                     })
                 })
         }

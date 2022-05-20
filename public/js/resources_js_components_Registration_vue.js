@@ -43,7 +43,11 @@ __webpack_require__.r(__webpack_exports__);
           password: _this.password,
           password_confirmation: _this.password_confirmation
         }).then(function (res) {
-          console.log(res);
+          localStorage.setItem('x-xsrf-token', res.config.headers['X-XSRF-TOKEN']);
+
+          _this.$router.push({
+            name: 'user.personal'
+          });
         });
       });
     }
@@ -226,7 +230,7 @@ var render = function () {
     }),
     _vm._v(" "),
     _c("input", {
-      staticClass: "btn btn-primary",
+      staticClass: "btn btn-success",
       attrs: { type: "submit", value: "Register" },
       on: {
         click: function ($event) {
